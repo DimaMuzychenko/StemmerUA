@@ -137,12 +137,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adjective.cpp" />
+    <ClCompile Include="EndingTree.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Noun.cpp" />
+    <ClCompile Include="Participle.cpp" />
+    <ClCompile Include="PartOfSpeach.cpp" />
+    <ClCompile Include="PartOfSpeechClassifier.cpp" />
+    <ClCompile Include="PartOfSpeechTagger.cpp" />
+    <ClCompile Include="PerfectiveGerund.cpp" />
+    <ClCompile Include="ReflexiveVerb.cpp" />
     <ClCompile Include="TextPreprocessor.cpp" />
+    <ClCompile Include="Verb.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adjective.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="EndingTree.h" />
+    <ClInclude Include="Noun.h" />
+    <ClInclude Include="Participle.h" />
+    <ClInclude Include="PartOfSpeach.h" />
+    <ClInclude Include="PartOfSpeechClassifier.h" />
+    <ClInclude Include="PartOfSpeechTagger.h" />
+    <ClInclude Include="PerfectiveGerund.h" />
+    <ClInclude Include="ReflexiveVerb.h" />
     <ClInclude Include="TextPreprocessor.h" />
+    <ClInclude Include="Verb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
