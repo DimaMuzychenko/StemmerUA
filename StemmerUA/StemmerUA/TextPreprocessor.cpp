@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <codecvt>
 #include <cwctype>
+#include <sstream>
 
 #include "TextPreprocessor.h"
 #include "Constants.h"
@@ -36,7 +37,17 @@ std::vector<std::wstring> TextPreprocessor::process(const std::wstring filename)
  	return words;
 }
 
-std::wstring TextPreprocessor::readWord(std::wifstream& file)
+std::vector<std::wstring> TextPreprocessor::processStr(const std::wstring text)
+{
+	std::vector<std::wstring> words;
+	std::wstringstream file(text);
+	std::wstring word;
+	while (word = readWord(file), !word.empty())
+		words.emplace_back(word);
+	return words;
+}
+
+std::wstring TextPreprocessor::readWord(std::wistream& file)
 {
 	std::wstring word;
 	std::streampos pos = file.tellg();
@@ -53,7 +64,7 @@ std::wstring TextPreprocessor::readWord(std::wifstream& file)
 	return word;
 }
 
-bool TextPreprocessor::isValidChar(std::streampos pos, std::wifstream& file)
+bool TextPreprocessor::isValidChar(std::streampos pos, std::wistream& file)
 {
 
 	bool result = false;

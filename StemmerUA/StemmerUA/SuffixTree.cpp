@@ -1,18 +1,23 @@
-#include "EndingTree.h"
-#include "Constants.h"
+#include "SuffixTree.h"
+#include "ConstantsHelper.h"
+#include "Utility.h"
 
-EndingTree::EndingTree() : leter(EMPTY_END)
+#include <forward_list>
+
+
+SuffixTree::SuffixTree() : leter(EMPTY_END)
 {
 }
 
-void EndingTree::build(const std::vector<std::wstring>& endings)
+void SuffixTree::build(const std::vector<std::wstring>& endings)
 {
-	for (const auto& ending : endings)
+	std::forward_list<std::wstring> sortedEndings(endings.cbegin(), endings.cend());
+	sortedEndings.sort(Utils::GraterWstringBySize());
+	for (const auto& ending : sortedEndings)
 		addBranch(ending);
-	sortBranches();
 }
 
-std::optional<std::wstring> EndingTree::checkWord(const std::wstring& word) const
+std::optional<std::wstring> SuffixTree::checkWord(const std::wstring& word) const
 {
 	if (word.empty())
 		return {};
@@ -41,23 +46,23 @@ std::optional<std::wstring> EndingTree::checkWord(const std::wstring& word) cons
 	return isError ? std::optional<std::wstring>{} : ending;
 }
 
-EndingTree::EndingTree(wchar_t leter) : leter(leter)
+SuffixTree::SuffixTree(wchar_t leter) : leter(leter)
 {
 }
 
-void EndingTree::addBranch(const std::wstring& ending)
+void SuffixTree::addBranch(const std::wstring& ending)
 {
 	wchar_t lastLeter = ending.empty() ? EMPTY_END : ending.back();
-	EndingTree* child = findChild(lastLeter);
+	SuffixTree* child = findChild(lastLeter);
 	if (!child)
 		child = addChild(lastLeter);
 	if(!ending.empty())
 		child->addBranch(ending.substr(0, ending.size() - 1));
 }
 
-EndingTree* EndingTree::findChild(wchar_t leter) const
+SuffixTree* SuffixTree::findChild(wchar_t leter) const
 {
-	EndingTree* result = nullptr;
+	SuffixTree* result = nullptr;
 	for (auto& child : children)
 	{
 		if (child->leter == leter)
@@ -66,12 +71,12 @@ EndingTree* EndingTree::findChild(wchar_t leter) const
 	return result;
 }
 
-EndingTree* EndingTree::addChild(wchar_t leter)
+SuffixTree* SuffixTree::addChild(wchar_t leter)
 {
-	return children.emplace_back(new EndingTree(leter)).get();
+	return children.emplace_back(new SuffixTree(leter)).get();
 }
 
-void EndingTree::sortBranches()
+void SuffixTree::sortBranches()
 {
 	for (auto& child : children)
 	{
