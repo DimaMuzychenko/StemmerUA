@@ -79,6 +79,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(ProjectDir)/ThirdParty</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -95,6 +96,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)/ThirdParty</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -112,6 +114,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(ProjectDir)/ThirdParty</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +131,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)/ThirdParty</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,32 +141,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Adjective.cpp" />
-    <ClCompile Include="EndingTree.cpp" />
+    <ClCompile Include="ConstantsHelper.cpp" />
+    <ClCompile Include="Lemmatizer.cpp" />
+    <ClCompile Include="SuffixTree.cpp" />
+    <ClCompile Include="StemmerToken.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Noun.cpp" />
-    <ClCompile Include="Participle.cpp" />
     <ClCompile Include="PartOfSpeach.cpp" />
-    <ClCompile Include="PartOfSpeechClassifier.cpp" />
     <ClCompile Include="PartOfSpeechTagger.cpp" />
-    <ClCompile Include="PerfectiveGerund.cpp" />
-    <ClCompile Include="ReflexiveVerb.cpp" />
+    <ClCompile Include="PreffixTree.cpp" />
     <ClCompile Include="TextPreprocessor.cpp" />
-    <ClCompile Include="Verb.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="WordTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adjective.h" />
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="EndingTree.h" />
-    <ClInclude Include="Noun.h" />
-    <ClInclude Include="Participle.h" />
+    <ClInclude Include="ConstantsHelper.h" />
+    <ClInclude Include="Lemmatizer.h" />
+    <ClInclude Include="SuffixTree.h" />
+    <ClInclude Include="StemmerToken.h" />
     <ClInclude Include="PartOfSpeach.h" />
-    <ClInclude Include="PartOfSpeechClassifier.h" />
     <ClInclude Include="PartOfSpeechTagger.h" />
-    <ClInclude Include="PerfectiveGerund.h" />
-    <ClInclude Include="ReflexiveVerb.h" />
+    <ClInclude Include="PreffixTree.h" />
     <ClInclude Include="TextPreprocessor.h" />
-    <ClInclude Include="Verb.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="WordTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
